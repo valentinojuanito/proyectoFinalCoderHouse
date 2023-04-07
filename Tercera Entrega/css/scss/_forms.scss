@@ -1,0 +1,87 @@
+/* # FORM* */
+fieldset {
+    border  : none;
+    padding : 2 rem;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+    --input-vpadding    : calc(((var(--input-height) - var(--input-line-height)) / 2) - 1px);
+    display             : block;
+    height              : var(--input-height);
+    padding             : var(--input-vpadding) calc(2.4rem - 1px);
+    border              : 0;
+    outline             : 0;
+    color               : var(--color-placeholder);
+    font-family         : var(--font-1);
+    font-size           : var(--text-sm);
+    font-size           : calc(var(--text-xs) * 0.8889);
+    line-height         : var(--input-line-height);
+    max-width           : 100%;
+    background-color    : var(--color-gray-5);
+    border              : 1px solid transparent;
+    transition          : all 0.3s ease-in-out;
+    border-radius       : var(--border-radius);
+}
+
+textarea {
+    min-height : calc(8 * var(--space));
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    color            : var(--color-black);
+    background-color : white;
+    box-shadow       : 0 0 5px var(--color-1);
+    border           : 1px solid var(--color-1-light);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display : inline;
+}
+
+label>input[type="checkbox"],
+label>input[type="radio"] {
+    margin   : 0;
+    position : relative;
+    top      : 2px;
+}
+
+@use "sass:map";
+
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+$estilos :(
+    color           : rgba(255, 255, 255, 0.2),
+    centro          : center,
+    tFuente         :var( --text-md ),
+    filter          : blur(8px),
+    margen          : 2em,
+    border-radius   : var(--border-radius),
+);
+
+.formstyle {
+    background-color:   map-get($estilos, color);
+    backdrop-filter:    map-get($estilos, filter);
+    padding:            map-get($estilos, margen);
+    border-radius:      map-get($estilos, border-radius);
+    @include flex-center;
+}

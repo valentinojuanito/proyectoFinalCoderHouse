@@ -1,0 +1,15 @@
+{
+  "author": "Valentino Diaz",
+  "description": "Proyecto Coder Entrega final",
+  "license": "MIT",
+  "name": "coder-6ta-entrega",
+  "scripts": {
+    "watch:css": "nodemon -e scss -x \"npm run build:css\"",
+    "build:css": "node-sass --output-style compressed css/scss/estilos.scss css/main.css"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "node-sass": "^7.0",
+    "nodemon": "^2.0.4"
+  }
+}

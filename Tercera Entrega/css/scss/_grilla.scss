@@ -1,0 +1,61 @@
+/*  GRID* */
+
+#grilla{
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "nav main_body "
+    "footer footer";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto;
+    column-gap: 2%;
+    row-gap: 2%;
+}
+
+header{
+    grid-area: header;
+}
+footer{
+    grid-area: footer;
+    justify-self: center;
+    display: inline-flex;
+}
+
+section#main_body {
+    grid-area: main_body;
+    align-self: center;
+    justify-self: center;
+
+}
+nav{
+    grid-area: nav;
+}
+
+/* row 
+ */
+.row {
+    width     : 92%;
+    max-width : var(--width-grid-max);
+    margin    : 0 auto;
+    display   : flex;
+    flex-flow : row wrap;
+ .row {
+    width        : auto;
+    max-width    : none;
+    margin-left  : calc(var(--gutter) * -1);
+    margin-right : calc(var(--gutter) * -1);
+}
+}
+
+/* column
+ */
+.column {
+    display : block;
+    flex    : 1 1 0%;
+    padding : 0 var(--gutter);
+}
+
+.collapse>.column,
+.column.collapse {
+    padding : 0;
+}

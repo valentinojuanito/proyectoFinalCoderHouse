@@ -1,0 +1,393 @@
+@charset "UTF-8";
+
+/* =================================================================== 
+ * TOC:
+ * # LINKS
+ * # NORMALIZE
+ * # BASE SETUP
+ * # TYPOGRAPHY 
+ *      ## base type styles
+ *      ## spacing
+ * # SITE HEADER
+ * # FOOTER
+ *------------------------------------------------------------------ */
+
+/* LINKS--- */
+@import "settings";
+@import "grilla";
+@import "buttons";
+@import "forms";
+@import "animation";
+
+/* ====================================================================
+ * # NORMALIZE
+* -------------------------------------------------------------------- */
+html {
+    line-height              : 1.15;
+    text-size-adjust         : 100%;
+}
+
+body {
+    margin : 0;
+}
+
+main {
+    display : block;
+}
+
+h1 {
+    font-size : 2em;
+    margin    : 0.67em 0;
+}
+
+
+hr {
+    box-sizing : content-box;
+    height     : 0;
+    overflow   : visible;
+}
+
+a {
+    background-color : transparent;
+}
+
+img {
+    border-style : none;
+}
+
+button,
+input,
+textarea {
+    font-family : inherit;
+    font-size   : 100%;
+    line-height : 1.15;
+    margin      : 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    appearance : button;
+}
+
+textarea {
+    overflow : auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing : border-box;
+    padding    : 0;
+}
+
+[type="search"] {
+    appearance : textfield;
+    outline-offset     : -2px;
+}
+
+details {
+    display : block;
+}
+
+
+[hidden] {
+    display : none;
+}
+
+/* ===================================================================
+ * # BASE SETUP
+ * ------------------------------------------------------------------- */
+html {
+    font-size  : var(--base-size);
+    box-sizing : border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing : inherit;
+}
+
+html,
+body {
+    height : 100%;
+}
+
+body { 
+         
+    background-image            : url(../assets/img/background.jpg);
+    background-repeat           : no-repeat; /* Do not repeat the image */
+    background-size             : auto;
+}   
+header {
+
+    opacity                     : 1;  
+    font-weight                 : bold;
+    padding: 0%;
+}
+p {
+    font-size      : inherit;
+    text-rendering : optimizeLegibility;
+}
+
+a {
+    text-decoration : none;
+}
+
+
+img,
+video {
+    max-width : 100%;
+    height    : auto;
+}
+
+
+div,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+p{
+    margin  : 0;
+    padding : 0;
+}
+
+/* --------------------------------------------------------------------
+ * ## mobile devices 
+ * -------------------------------------------------------------------- */
+ @media screen and (max-width: 576px) {
+    .row {
+        width         : 100%;
+        padding-left  : 6vw;
+        padding-right : 6vw;
+}
+
+   
+}
+@media screen and (min-width: 992px) {
+    #grilla {
+      grid-template-areas:
+        "header header"
+        "nav main_body"
+        "footer footer";
+    grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    #grilla {
+      grid-template-areas:
+        "header"
+        "nav"
+        "main_body"
+        "footer";
+    grid-template-columns: auto;
+    }
+}
+/* ===================================================================
+ * # TYPOGRAPHY 
+/* --------------------------------------------------------------------
+ * ## base type styles
+ * -------------------------------------------------------------------- */
+body {
+    font-family : var(--font-1);
+    font-size   : var(--base-font-size);
+    font-weight : 400;
+    line-height : var(--vspace-1);
+    color       : var(--color-text);
+}
+
+/* links
+ */
+a { 
+    color      : var(--color-1);
+    transition : all 0.3s ease-in-out;
+a:focus,
+a:hover,
+a:active {
+    color : var(--color-2);
+&a:active {
+    outline : 0;
+}
+}
+}
+
+/* headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family            : var(--font-2);
+    font-weight            : 500;
+    color                  : var(--color-text-dark);
+ }
+
+h1{
+    font-size      : var(--text-display-2);
+    line-height    : calc(2.25 * var(--space));
+    letter-spacing : -0.015em;
+}
+
+h2{
+    font-size      : var(--text-xl);
+    line-height    : calc(1.375 * var(--space));
+    letter-spacing : -0.01em;
+}
+
+h3{
+    font-size   : var(--text-md);
+    line-height : var( --vspace-1);
+}
+
+/* figures*/
+figure img,
+p img {
+    margin         : 0;
+    vertical-align : bottom;
+}
+
+figure {
+    display      : block;
+    margin-left  : 0;
+    margin-right : 0;
+}
+
+/* --------------------------------------------------------------------
+ * ## spacing
+ * -------------------------------------------------------------------- */
+
+button,
+.btn {
+    margin-bottom : var(--vspace-0_5);
+}
+
+input,
+textarea,
+select,
+figure,
+figcaption,
+p,
+ul,
+ol,
+dl,
+form,
+img,
+.video-container {
+    margin-bottom : var(--vspace-1);
+}
+
+/* ## theme-specific typography classes- */
+.body-text-2 {
+    font-size   : calc(var(--text-size)*1.1) ;
+    line-height : calc(0.9375 * var(--space));
+}
+
+.body-text-3 {
+    font-size   : calc(var(--text-size) * 0.95);
+    line-height : calc(0.9375 * var(--space));
+}
+
+.text-display-1 {
+    font-size   : var(--text-display-1);
+    font-weight : 200;
+    line-height : 1;
+    margin-top  : 0;
+}
+
+/* ------------------------------------------------------------------- 
+ * ## media classes
+ * ------------------------------------------------------------------- */
+
+ /* responsive video container */
+.video-container {
+    --aspect-ratio : 16/9;
+    position       : relative;
+    height         : 0;
+    overflow       : hidden;
+    padding-bottom : calc(100% / (var(--aspect-ratio)));
+
+    embed,
+    video {
+        position : absolute;
+        top      : 0;
+        left     : 0;
+        width    : 80%;
+        height   : 80%;
+    }
+}
+
+/* --------------------------------------------------------------------
+ * ## logo
+ * -------------------------------------------------------------------- */
+.s-header__logo {
+    z-index     : 3;
+    line-height : 1;
+    transform   : translate(4px, -2px);
+    padding-top: 2%;
+
+     a {
+        display     : block;
+        margin      : 0;
+        padding     : 0;
+        outline     : 0;
+        border      : none;
+        color       : var(--color-1-lightest  ) ;  
+        font-size   : var(--text-xxxl);
+        font-style  : italic;
+
+    img {
+        float          : left;
+        width          : 70px;
+        margin         : 0;
+        vertical-align : bottom;
+        }
+    } 
+}
+/* --------------------------------------------------------------------
+ * ## main navigation
+ * -------------------------------------------------------------------- */
+
+.s-header__nav ul {
+    list-style     : none;
+    display        : block;
+    flex-flow      : column;
+    margin         : 0;
+    left           : 0;
+    padding-top    : 2%;
+    padding-bottom : 2%;
+    padding-left   : 0;
+
+        li {
+    display    : block;
+    padding-left : 0;
+
+            a {
+    display             : block;
+    font-size           : 1.7rem;
+    font-weight         : bolder;
+    line-height         : var(--header-height);
+    color               : rgba(255, 255, 255, 0.6);
+    padding             : 0 1.2rem;
+           }
+    }   
+}
+
+/* ===================================================================
+ * # FOOTER
+ * ------------------------------------------------------------------- */
+footer {
+
+    padding-top      : calc(0.5 * var(--space));
+    margin-top       : auto;
+    font-weight      : 20;
+    color            : rgba(255, 255, 255, 0.4);
+    position         : relative;
+}
